@@ -7,10 +7,10 @@ regionArray_array =  JSON.parse(sessionStorage.getItem("regionArray"));
 //alert(regionArray_array.region);
 //alert(regionArray_array.username); 
 new_verification_count_array =  JSON.parse(sessionStorage.getItem("new_verification_count_array"));
-superArray =  JSON.parse(sessionStorage.getItem("new_verification_count_array"));
-supervisor_new_array= JSON.parse(sessionStorage.getItem("supervisor_new_array"));
+/*superArray =  JSON.parse(sessionStorage.getItem("new_verification_count_array"));
+supervisor_new_array= JSON.parse(sessionStorage.getItem("supervisor_new_array"));*/
 
-new_verification_count_array =  JSON.parse(sessionStorage.getItem("new_verification_count_array"));
+/*new_verification_count_array =  JSON.parse(sessionStorage.getItem("new_verification_count_array"));*/
 supervisor_inprogress_count_array =  JSON.parse(sessionStorage.getItem("supervisor_inprogress_count_array"));
 supervisor_verified_count_array =  JSON.parse(sessionStorage.getItem("supervisor_verified_count_array"));
 supervisor_not_verified_count_array =  JSON.parse(sessionStorage.getItem("supervisor_not_verified_count_array"));
@@ -84,12 +84,12 @@ for(a=0;a<gcm_reg_id_array.length;a++){
 //alert(region+'region');
 //alert(user_id+'user_id');
 
-for(a=0;a<new_verification_count_array.length;a++){
+/*for(a=0;a<new_verification_count_array.length;a++){
   new_count = new_verification_count_array[a];
 // alert(new_count.new_verification_count+'new_verification_count');
 $("#new_veri_count").html(new_count.new_verification_count);
 }
-
+*/
 
 for(a=0;a<supervisor_inprogress_count_array.length;a++){
   inprogress_count = supervisor_inprogress_count_array[a];
@@ -123,11 +123,11 @@ $("#completed_count").html(not_verified_counta.completed_count);
 
 }
 
-$(document).off('click', '#verified').on('click', '#verified', function() {
+/*$(document).off('click', '#verified').on('click', '#verified', function() {
 
 $.mobile.changePage($('#supervisor_verified_list'), { transition: "none", changeHash: true, reverse: false });
   return false;
-})
+})*/
 
 $(document).off('click', '#not_verified').on('click', '#not_verified', function() {
 
@@ -136,19 +136,144 @@ $.mobile.changePage($('#supervisor_list_notveri'), { transition: "none", changeH
 })
 
 
-$(document).off('click', '#completed').on('click', '#completed', function() {
+/*$(document).off('click', '#completed').on('click', '#completed', function() {
 
 $.mobile.changePage($('#supervisor_completed_list'), { transition: "none", changeHash: true, reverse: false });
   return false;
-})
+})*/
 
-
+/*
 $(document).off('click', '#inprogress').on('click', '#inprogress', function() {
 
 $.mobile.changePage($('#supervisor_inprogress_list'), { transition: "none", changeHash: true, reverse: false });
   return false;
-})
+})*/
 
+$(document).off('click', '#completed').on('click', '#completed', function() {
+//alert(region+'inprogress');
+//alert(region+'region');
+$.ajax({url: 'http://staging.eimpressive.com/slim/slim_four_rips/dash_completeda.php?',
+  data:$('#new').serialize(),
+  type: 'post',                   
+  async: 'true',
+  crossDomain: true,
+  dataType: 'json',
+  beforeSend: function() {
+  },
+  complete: function() {
+  },
+  success: function (result) {
+    console.log('searchlpa ' +result);
+    if(result[0]){
+      $("#popupsearchmade").popup("open");
+//alert('Data available for the search made');
+
+sessionStorage.setItem("coordinator_final_comment_array",JSON.stringify(result[0]));
+
+
+// alert(region+'refresh new regionArray_array');
+$.mobile.loading().hide();
+$.mobile.changePage($('#supervisor_completed_list'), { transition: "none", changeHash: true, reverse: false });
+}else {
+  alert('No Data Found for the search record'); 
+}
+
+return false;
+},
+error: function (request,error) {
+// This callback function will trigger on unsuccessful action     
+console.log(request);
+console.log(error);  
+
+alert('Network error has occurred please try again!');
+}
+});
+
+});
+
+$(document).off('click', '#verified').on('click', '#verified', function() {
+//alert(region+'inprogress');
+//alert(region+'region');
+$.ajax({url: 'http://staging.eimpressive.com/slim/slim_four_rips/dash_await.php?',
+  data:$('#new').serialize(),
+  type: 'post',                   
+  async: 'true',
+  crossDomain: true,
+  dataType: 'json',
+  beforeSend: function() {
+  },
+  complete: function() {
+  },
+  success: function (result) {
+    console.log('searchlpa ' +result);
+    if(result[0]){
+      $("#popupsearchmade").popup("open");
+//alert('Data available for the search made');
+
+sessionStorage.setItem("supervisor_final_command_array",JSON.stringify(result[0]));
+
+
+// alert(region+'refresh new regionArray_array');
+$.mobile.loading().hide();
+$.mobile.changePage($('#supervisor_verified_list'), { transition: "none", changeHash: true, reverse: false });
+}else {
+  alert('No Data Found for the search record'); 
+}
+
+return false;
+},
+error: function (request,error) {
+// This callback function will trigger on unsuccessful action     
+console.log(request);
+console.log(error);  
+
+alert('Network error has occurred please try again!');
+}
+});
+
+});
+
+$(document).off('click', '#inprogress').on('click', '#inprogress', function() {
+//alert(region+'inprogress');
+//alert(region+'region');
+$.ajax({url: 'http://staging.eimpressive.com/slim/slim_four_rips/dashinprogressa.php?region='+region+"&user_id="+user_id+"&state="+state,
+  data:$('#new').serialize(),
+  type: 'post',                   
+  async: 'true',
+  crossDomain: true,
+  dataType: 'json',
+  beforeSend: function() {
+  },
+  complete: function() {
+  },
+  success: function (result) {
+    console.log('searchlpa ' +result);
+    if(result[0]){
+      $("#popupsearchmade").popup("open");
+//alert('Data available for the search made');
+
+sessionStorage.setItem("supervisor_activity_log_array",JSON.stringify(result[0]));
+
+
+// alert(region+'refresh new regionArray_array');
+$.mobile.loading().hide();
+$.mobile.changePage($('#supervisor_inprogress_list'), { transition: "none", changeHash: true, reverse: false });
+}else {
+  alert('No Data Found for the search record'); 
+}
+
+return false;
+},
+error: function (request,error) {
+// This callback function will trigger on unsuccessful action     
+console.log(request);
+console.log(error);  
+
+alert('Network error has occurred please try again!');
+}
+});
+
+});
 
 $(document).off('click', '#dashlogout').on('click', '#dashlogout', function() {
   sessionStorage.clear(); 

@@ -83,7 +83,7 @@ integrity_lifestyle_permanent_array =  JSON.parse(sessionStorage.getItem("integr
 servant_education_array =  JSON.parse(sessionStorage.getItem("servant_education_array"));
 //alert(inprogressArray_array);
 
-coordinator_final_comment_array =  JSON.parse(sessionStorage.getItem("coordinator_final_comment_array"));
+/*coordinator_final_comment_array =  JSON.parse(sessionStorage.getItem("coordinator_final_comment_array"));*/
 multiple_documents_array =  JSON.parse(sessionStorage.getItem("multiple_documents_array"));
 tet_array =  JSON.parse(sessionStorage.getItem("tet_array"));
 personal_details_array =  JSON.parse(sessionStorage.getItem("personal_details_array"));

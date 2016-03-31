@@ -148,7 +148,7 @@ integrity_lifestyle_pera = JSON.parse(sessionStorage.getItem("integrity_lifestyl
 servant_educa = JSON.parse(sessionStorage.getItem("servant_educa"));
 
 reject_repa = JSON.parse(sessionStorage.getItem("reject_repa"));
-coordinator_final_comment_array = JSON.parse(sessionStorage.getItem("coordinator_final_comment_array"));
+/*coordinator_final_comment_array = JSON.parse(sessionStorage.getItem("coordinator_final_comment_array"));*/
 
 personal_deta = JSON.parse(sessionStorage.getItem("personal_deta"));
 
