@@ -123,11 +123,11 @@ $("#completed_count").html(not_verified_counta.completed_count);
 
 }
 
-/*$(document).off('click', '#verified').on('click', '#verified', function() {
+$(document).off('click', '#verified').on('click', '#verified', function() {
 
 $.mobile.changePage($('#supervisor_verified_list'), { transition: "none", changeHash: true, reverse: false });
   return false;
-})*/
+})
 
 $(document).off('click', '#not_verified').on('click', '#not_verified', function() {
 
@@ -136,20 +136,20 @@ $.mobile.changePage($('#supervisor_list_notveri'), { transition: "none", changeH
 })
 
 
-/*$(document).off('click', '#completed').on('click', '#completed', function() {
+$(document).off('click', '#completed').on('click', '#completed', function() {
 
 $.mobile.changePage($('#supervisor_completed_list'), { transition: "none", changeHash: true, reverse: false });
   return false;
-})*/
+})
 
-/*
+
 $(document).off('click', '#inprogress').on('click', '#inprogress', function() {
 
 $.mobile.changePage($('#supervisor_inprogress_list'), { transition: "none", changeHash: true, reverse: false });
   return false;
-})*/
+})
 
-$(document).off('click', '#completed').on('click', '#completed', function() {
+/*$(document).off('click', '#completed').on('click', '#completed', function() {
 //alert(region+'inprogress');
 //alert(region+'region');
 $.ajax({url: 'http://staging.eimpressive.com/slim/slim_four_rips/dash_completeda.php?',
@@ -189,9 +189,9 @@ alert('Network error has occurred please try again!');
 }
 });
 
-});
+});*/
 
-$(document).off('click', '#verified').on('click', '#verified', function() {
+/*$(document).off('click', '#verified').on('click', '#verified', function() {
 //alert(region+'inprogress');
 //alert(region+'region');
 $.ajax({url: 'http://staging.eimpressive.com/slim/slim_four_rips/dash_await.php?',
@@ -231,9 +231,9 @@ alert('Network error has occurred please try again!');
 }
 });
 
-});
+});*/
 
-$(document).off('click', '#inprogress').on('click', '#inprogress', function() {
+/*$(document).off('click', '#inprogress').on('click', '#inprogress', function() {
 //alert(region+'inprogress');
 //alert(region+'region');
 $.ajax({url: 'http://staging.eimpressive.com/slim/slim_four_rips/dashinprogressa.php?region='+region+"&user_id="+user_id+"&state="+state,
@@ -253,6 +253,7 @@ $.ajax({url: 'http://staging.eimpressive.com/slim/slim_four_rips/dashinprogressa
 //alert('Data available for the search made');
 
 sessionStorage.setItem("supervisor_activity_log_array",JSON.stringify(result[0]));
+sessionStorage.setItem("coordinator_final_comment_array",JSON.stringify(result[1]));
 
 
 // alert(region+'refresh new regionArray_array');
@@ -273,7 +274,7 @@ alert('Network error has occurred please try again!');
 }
 });
 
-});
+});*/
 
 $(document).off('click', '#dashlogout').on('click', '#dashlogout', function() {
   sessionStorage.clear(); 
