@@ -30,7 +30,7 @@ $(document).off('click', '#submit').on('click', '#submit', function() {
         console.log($('#check-watchuser').serialize());
         $.ajax({url: 'http://staging.eimpressive.com/slim/slim_four_rips/index.php',
             data:$('#check-watchuser').serialize(),
-            type: 'post',                   
+            type: 'post',                 
             async: 'true',
             crossDomain: true,
             dataType: 'json',
